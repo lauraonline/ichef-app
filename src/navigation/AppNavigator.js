@@ -6,6 +6,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { colors } from '../theme/theme';
 
+import RecipeDetailScreen from '../screens/RecipeDetailsScreen';
+import RecipeStepsScreen from '../screens/RecipeStepsScreen';
+
 // Importando as Telas
 import LoginScreen from '../screens/LoginScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -52,12 +55,13 @@ function TabNavigator() {
 
 // Navegação Principal (Pilha)
 export default function AppNavigator() {
-    return (
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {/* 1. O app começa no Login */}
-        <Stack.Screen name="Login" component={LoginScreen} />
-        {/* 2. Após logar, vai para as abas (MainTabs) */}
-        <Stack.Screen name="MainTabs" component={TabNavigator} />
-        </Stack.Navigator>
-    );
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="MainTabs" component={TabNavigator} />
+      {/* Novas Telas */}
+      <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} />
+      <Stack.Screen name="RecipeSteps" component={RecipeStepsScreen} />
+    </Stack.Navigator>
+  );
 }
