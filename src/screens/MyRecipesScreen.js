@@ -5,6 +5,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, fonts } from '../theme/theme';
 import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
+import SearchBar from '../components/SearchBar';
+
 
 export default function MyRecipesScreen() {
   const minhasReceitas = [
@@ -20,13 +22,8 @@ export default function MyRecipesScreen() {
       
       <View style={styles.content}>
         {/* Barra de Pesquisa Estilizada (Pill) */}
-        <View style={styles.searchBar}>
-          <Text style={styles.searchPlaceholder}>Pesquisar</Text>
-          <View style={styles.searchIcons}>
-            <MaterialCommunityIcons name="filter-variant" size={24} color={colors.textoSecundario} />
-            <MaterialCommunityIcons name="magnify" size={24} color={colors.textoSecundario} />
-          </View>
-        </View>
+        <SearchBar placeholder="Pesquisar minhas receitas" />
+
 
         {/* Botão Adicionar (Usando cor Primária Terracota) */}
         <TouchableOpacity style={styles.addButton} activeOpacity={0.7}>

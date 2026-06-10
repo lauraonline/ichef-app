@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView, SafeAreaView, TouchableOpacity } fr
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, fonts } from '../theme/theme';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 
 const categorias = [
   { id: '1', nome: 'Doces', cor: '#C15B2A' }, // Terracota
@@ -20,13 +21,10 @@ export default function SearchScreen() {
       
       <View style={styles.content}>
         {/* Barra de Busca com Filtro e Lupa */}
-        <View style={styles.searchBar}>
-          <Text style={styles.searchPlaceholder}>Pesquisar</Text>
-          <View style={styles.searchIcons}>
-            <MaterialCommunityIcons name="filter-variant" size={24} color={colors.texto} />
-            <MaterialCommunityIcons name="magnify" size={24} color={colors.texto} />
-          </View>
-        </View>
+        <SearchBar 
+            onFilterPress={() => alert('Abrir filtros')} 
+            onSearchPress={() => alert('Ativar teclado')} 
+        />
 
         <Text style={styles.secaoTitulo}>Categorias</Text>
 
