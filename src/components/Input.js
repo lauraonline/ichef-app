@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextInput, View, StyleSheet, Text } from 'react-native';
 import { colors, fonts } from '../theme/theme';
 
-export default function Input({ placeholder, value, onChangeText, secureTextEntry, error }) {
+export default function Input({ placeholder, value, onChangeText, secureTextEntry, error, ...props }) {
     const [isFocused, setIsFocused] = useState(false);
 
     return (
@@ -11,7 +11,8 @@ export default function Input({ placeholder, value, onChangeText, secureTextEntr
             style={[
             styles.input,
             isFocused && styles.inputFocused,
-            error && styles.inputError
+            error && styles.inputError,
+            props.multiline && { minHeight: 100, textAlignVertical: 'top' }
             ]}
             placeholder={placeholder}
             placeholderTextColor={colors.bordaInput}
@@ -20,6 +21,7 @@ export default function Input({ placeholder, value, onChangeText, secureTextEntr
             secureTextEntry={secureTextEntry}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
+            {...props}
         />
         {error ? <Text style={styles.errorText}>{error}</Text> : null}
         </View>
