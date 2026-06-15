@@ -16,6 +16,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import ListsScreen from '../screens/ListsScreen';
 import MyRecipesScreen from '../screens/MyRecipesScreen';
+import ListRecipesScreen from '../screens/ListRecipesScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -64,6 +65,7 @@ export default function AppNavigator() {
       <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} />
       <Stack.Screen name="RecipeSteps" component={RecipeStepsScreen} />
       <Stack.Screen name="Ratings" component={RatingsScreen} />
+      <Stack.Screen name="ListRecipes" component={ListRecipesScreen} />
     </Stack.Navigator>
   );
 }

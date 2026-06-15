@@ -13,14 +13,27 @@ const listasUsuario = [
   { id: '5', nome: 'Smoothies saudáveis', quantidade: 6 },
 ];
 
-export default function ListsScreen() {
+export default function ListsScreen({ navigation }) {
+  const handleListPress = (lista) => {
+    if (lista.id === '2') {
+      navigation.navigate('ListRecipes', {
+        title: 'Favoritos da semana',
+      });
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header titulo="Listas salvas" />
       
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {listasUsuario.map((lista) => (
-          <TouchableOpacity key={lista.id} style={styles.listItem}>
+          <TouchableOpacity
+            key={lista.id}
+            style={styles.listItem}
+            activeOpacity={0.8}
+            onPress={() => handleListPress(lista)}
+          >
             <View style={styles.iconContainer}>
               <MaterialCommunityIcons name="bookmark" size={24} color={colors.primaria} />
             </View>
