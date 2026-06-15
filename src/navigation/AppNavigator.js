@@ -8,6 +8,7 @@ import { colors } from '../theme/theme';
 
 import RecipeDetailScreen from '../screens/RecipeDetailsScreen';
 import RecipeStepsScreen from '../screens/RecipeStepsScreen';
+import RatingsScreen from '../screens/RatingsScreen';
 
 // Importando as Telas
 import LoginScreen from '../screens/LoginScreen';
@@ -62,6 +63,7 @@ export default function AppNavigator() {
       {/* Novas Telas */}
       <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} />
       <Stack.Screen name="RecipeSteps" component={RecipeStepsScreen} />
+      <Stack.Screen name="Ratings" component={RatingsScreen} />
     </Stack.Navigator>
   );
 }

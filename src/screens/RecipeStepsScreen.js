@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView, SafeAreaView, TouchableOpacity } fr
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, fonts } from '../theme/theme';
 import Header from '../components/Header';
+import Button from '../components/Button';
 
 const TEMPO_INICIAL = 420;
 
@@ -130,6 +131,12 @@ const resetTimer = () => {
             <MaterialCommunityIcons name="star-half-full" size={24} color={colors.primaria} />
             <Text style={styles.reviewScore}> 4.7 <Text style={styles.reviewCount}>(49 avaliações)</Text></Text>
           </View>
+          <Button 
+            titulo="Avaliar e Comentar" 
+            variant="secondary" 
+            onPress={() => navigation.navigate('Ratings')} 
+            style={{ marginTop: 20 }}
+          />
         </View>
 
       </ScrollView>

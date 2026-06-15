@@ -1,17 +1,21 @@
 // src/components/SearchBar.js
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, fonts } from '../theme/theme';
 
-export default function SearchBar({ placeholder = "Pesquisar", onFilterPress, onSearchPress }) {
+export default function SearchBar({ placeholder = 'Pesquisar', value, onChangeText, onFilterPress, onSearchPress }) {
   return (
-    <TouchableOpacity 
-      style={styles.container} 
-      activeOpacity={0.8} 
-      onPress={onSearchPress}
-    >
-      <Text style={styles.placeholder}>{placeholder}</Text>
+    <View style={styles.container}>
+      <TextInput
+        style={styles.input}
+        placeholder={placeholder}
+        placeholderTextColor={colors.bordaInput}
+        value={value}
+        onChangeText={onChangeText}
+        returnKeyType="search"
+        onSubmitEditing={onSearchPress}
+      />
       
       <View style={styles.iconContainer}>
         {/* Botão de Filtro */}
@@ -20,11 +24,11 @@ export default function SearchBar({ placeholder = "Pesquisar", onFilterPress, on
         </TouchableOpacity>
         
         {/* Ícone de Lupa */}
-        <View style={styles.iconButton}>
+        <TouchableOpacity onPress={onSearchPress} style={styles.iconButton}>
           <MaterialCommunityIcons name="magnify" size={24} color={colors.texto} />
-        </View>
+        </TouchableOpacity>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
 
@@ -48,10 +52,12 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     shadowOffset: { width: 0, height: 1 },
   },
-  placeholder: {
+  input: {
+    flex: 1,
     fontFamily: fonts.corpo,
     fontSize: 16,
-    color: colors.bordaInput,
+    color: colors.texto,
+    paddingVertical: 0,
   },
   iconContainer: {
     flexDirection: 'row',
