@@ -9,6 +9,8 @@ import { colors } from '../theme/theme';
 import RecipeDetailScreen from '../screens/RecipeDetailsScreen';
 import RecipeStepsScreen from '../screens/RecipeStepsScreen';
 import RatingsScreen from '../screens/RatingsScreen';
+import PatoRecipeDetailScreen from '../screens/PatoRecipeDetailScreen';
+import PatoRecipeStepsScreen from '../screens/PatoRecipeStepsScreen';
 
 // Importando as Telas
 import LoginScreen from '../screens/LoginScreen';
@@ -66,6 +68,8 @@ export default function AppNavigator() {
       <Stack.Screen name="RecipeSteps" component={RecipeStepsScreen} />
       <Stack.Screen name="Ratings" component={RatingsScreen} />
       <Stack.Screen name="ListRecipes" component={ListRecipesScreen} />
+      <Stack.Screen name="PatoRecipeDetail" component={PatoRecipeDetailScreen} />
+      <Stack.Screen name="PatoRecipeSteps" component={PatoRecipeStepsScreen} />
     </Stack.Navigator>
   );
 }
