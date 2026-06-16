@@ -1,6 +1,8 @@
 // src/screens/ListRecipesScreen.js
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, BackHandler } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { colors, fonts } from '../theme/theme';
 import Header from '../components/Header';
 import RecipeCard from '../components/RecipeCard';
@@ -35,12 +37,47 @@ const listRecipes = [
 
 export default function ListRecipesScreen({ navigation, route }) {
   const title = route?.params?.title ?? 'Receitas';
+  const selectedRecipeTitle = route?.params?.selectedRecipeTitle;
+  const fromSaveFlow = route?.params?.fromSaveFlow;
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        if (fromSaveFlow) {
+          navigation.navigate('MainTabs', { screen: 'Home' });
+          return true;
+        }
+        return false;
+      };
+
+      const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () => subscription.remove();
+    }, [fromSaveFlow, navigation])
+  );
+
+  const handleBackPress = () => {
+    if (fromSaveFlow) {
+      navigation.navigate('MainTabs', { screen: 'Home' });
+    } else {
+      navigation.goBack();
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header titulo={title} showBackButton={true} onBackPress={() => navigation.goBack()} />
+      <Header titulo={title} showBackButton={true} onBackPress={handleBackPress} />
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {selectedRecipeTitle ? (
+          <View style={styles.savedBanner}>
+            <MaterialCommunityIcons name="check-circle" size={22} color={colors.primaria} />
+            <Text style={styles.savedBannerText}>{selectedRecipeTitle} salvo nesta lista.</Text>
+          </View>
+        ) : null}
+
+        <Text style={styles.sectionTitle}>Receitas da lista</Text>
+
         {listRecipes.map((recipe) => (
           <RecipeCard
             key={recipe.id}
@@ -58,6 +95,21 @@ export default function ListRecipesScreen({ navigation, route }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.fundo },
   content: { paddingHorizontal: 20, paddingTop: 16 },
+  savedBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: colors.secundaria,
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 18,
+  },
+  savedBannerText: {
+    flex: 1,
+    fontFamily: fonts.interface,
+    fontSize: 15,
+    color: colors.texto,
+  },
   sectionTitle: {
     fontFamily: fonts.titulo,
     fontSize: 22,

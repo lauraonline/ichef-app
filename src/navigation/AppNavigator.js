@@ -19,6 +19,7 @@ import SearchScreen from '../screens/SearchScreen';
 import ListsScreen from '../screens/ListsScreen';
 import MyRecipesScreen from '../screens/MyRecipesScreen';
 import ListRecipesScreen from '../screens/ListRecipesScreen';
+import SaveRecipeToListScreen from '../screens/SaveRecipeToListScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -68,6 +69,7 @@ export default function AppNavigator() {
       <Stack.Screen name="RecipeSteps" component={RecipeStepsScreen} />
       <Stack.Screen name="Ratings" component={RatingsScreen} />
       <Stack.Screen name="ListRecipes" component={ListRecipesScreen} />
+      <Stack.Screen name="SaveRecipeToList" component={SaveRecipeToListScreen} />
       <Stack.Screen name="PatoRecipeDetail" component={PatoRecipeDetailScreen} />
       <Stack.Screen name="PatoRecipeSteps" component={PatoRecipeStepsScreen} />
     </Stack.Navigator>

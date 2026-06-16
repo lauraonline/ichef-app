@@ -49,7 +49,7 @@ export default function RecipeDetailScreen({ navigation }) {
               titulo="Salvar" 
               variant="secondary" 
               style={{ flex: 1, marginRight: 8 }} 
-              onPress={() => alert('Salvo nas listas!')} 
+              onPress={() => navigation.navigate('SaveRecipeToList', { recipeTitle: 'Brigadeiro de panela' })} 
             />
             <Button 
               titulo="Fazer receita" 
