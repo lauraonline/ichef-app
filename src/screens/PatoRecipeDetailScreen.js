@@ -31,10 +31,10 @@ export default function PatoRecipeDetailScreen({ navigation }) {
           </View>
 
           <View style={styles.tagContainer}>
+            <View style={styles.tag}><Text style={styles.tagText}>Difícil</Text></View>
             <View style={styles.tag}><Text style={styles.tagText}>Tradicional</Text></View>
             <View style={styles.tag}><Text style={styles.tagText}>Salgado</Text></View>
             <View style={styles.tag}><Text style={styles.tagText}>Especial</Text></View>
-            <View style={styles.tag}><Text style={styles.tagText}>Difícil</Text></View>
           </View>
 
           <Text style={styles.description}>
@@ -43,7 +43,14 @@ export default function PatoRecipeDetailScreen({ navigation }) {
 
           <View style={styles.actionRow}>
             <Button
-              titulo="Ver preparo"
+              titulo="Salvar"
+              variant="secondary"
+              style={{ flex: 1, marginRight: 8 }}
+              onPress={() => alert('Salvo nas listas!')}
+            />
+            <Button
+              titulo="Fazer receita"
+              style={{ flex: 1.5 }}
               onPress={() => navigation.navigate('PatoRecipeSteps')}
             />
           </View>

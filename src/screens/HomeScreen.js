@@ -12,7 +12,7 @@ const receitasCafe = [
 ];
 
 const receitasDoces = [
-    { id: '3', titulo: 'Brigadeiro Gourmet', img: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400' },
+  { id: '3', titulo: 'Brigadeiro Gourmet', img: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Brigadeiros.jpg' },
     { id: '4', titulo: 'Pudim de Leite', img: 'https://images.unsplash.com/photo-1528975604071-b4dc52a2d18c?w=400' },
 ];
 

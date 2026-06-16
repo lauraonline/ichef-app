@@ -9,7 +9,7 @@ const listRecipes = [
   {
     id: 'fs-1',
     titulo: 'Brigadeiro de panela',
-    imagem: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400',
+    imagem: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Brigadeiros.jpg',
   },
   {
     id: 'fs-2',

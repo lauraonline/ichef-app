@@ -14,7 +14,7 @@ export default function RecipeDetailScreen({ navigation }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Imagem de Destaque */}
         <Image 
-          source={{ uri: 'https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=800' }} 
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/5/57/Brigadeiros.jpg' }} 
           style={styles.heroImage} 
         />
 
